@@ -28,5 +28,9 @@ document.getElementById("submitBtn").onclick = function () {
     const selectedLine = document.getElementById("lineSelect").value;
     const stations = mrtLines[selectedLine];
     const randomStation = stations[Math.floor(Math.random() * stations.length)];
-    document.getElementById("result").innerText = `你選擇了 ${selectedLine}，隨機站名: ${randomStation}`;
+
+    // 顯示結果並淡入
+    const resultElement = document.getElementById("result");
+    resultElement.innerText = `你選擇了 ${selectedLine}，隨機站名: ${randomStation}`;
+    resultElement.classList.add("show");
 };

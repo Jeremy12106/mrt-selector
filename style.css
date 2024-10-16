@@ -1,27 +1,103 @@
+/* 全局樣式 */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    text-align: center;
-    margin-top: 50px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
 h1 {
     color: #333;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+/* 容器設計 */
+.container {
+    text-align: center;
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 下拉選單和按鈕 */
+.selector {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
 
 select {
-    margin: 20px;
     padding: 10px;
+    font-size: 1rem;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+}
+
+select:hover {
+    border-color: #999;
 }
 
 button {
     padding: 10px 20px;
+    font-size: 1rem;
     background-color: #4CAF50;
     color: white;
     border: none;
+    border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
 }
 
 button:hover {
     background-color: #45a049;
+    transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(1);
+}
+
+/* 顯示結果的樣式與動畫 */
+#result {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    color: #333;
+}
+
+#result.show {
+    opacity: 1;
+}
+
+/* 捷運線顏色對應 */
+option.red {
+    color: red;
+}
+
+option.blue {
+    color: blue;
+}
+
+option.brown {
+    color: brown;
+}
+
+option.green {
+    color: green;
+}
+
+option.orange {
+    color: orange;
+}
+
+option.yellow {
+    color: goldenrod;
 }

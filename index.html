@@ -9,17 +9,21 @@
 </head>
 
 <body>
-    <h1>選擇台北捷運的線</h1>
-    <select id="lineSelect">
-        <option value="淡水信義線">淡水信義線 (紅線)</option>
-        <option value="板南線">板南線 (藍線)</option>
-        <option value="文湖線">文湖線 (棕線)</option>
-        <option value="松山新店線">松山新店線 (綠線)</option>
-        <option value="中和新蘆線">中和新蘆線 (橘線)</option>
-        <option value="環狀線">環狀線 (黃線)</option>
-    </select>
-    <button id="submitBtn">提交</button>
-    <p id="result"></p>
+    <div class="container">
+        <h1>選擇台北捷運的線</h1>
+        <div class="selector">
+            <select id="lineSelect">
+                <option value="淡水信義線" class="red">淡水信義線 (紅線)</option>
+                <option value="板南線" class="blue">板南線 (藍線)</option>
+                <option value="文湖線" class="brown">文湖線 (棕線)</option>
+                <option value="松山新店線" class="green">松山新店線 (綠線)</option>
+                <option value="中和新蘆線" class="orange">中和新蘆線 (橘線)</option>
+                <option value="環狀線" class="yellow">環狀線 (黃線)</option>
+            </select>
+            <button id="submitBtn">提交</button>
+        </div>
+        <p id="result" class="fade-in"></p>
+    </div>
 
     <script src="script.js"></script>
 </body>
