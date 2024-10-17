@@ -29,8 +29,21 @@ document.getElementById("submitBtn").onclick = function () {
     const stations = mrtLines[selectedLine];
     const randomStation = stations[Math.floor(Math.random() * stations.length)];
 
-    // 顯示結果並淡入
     const resultElement = document.getElementById("result");
     resultElement.innerText = `你選擇了 ${selectedLine}，隨機站名: ${randomStation}`;
     resultElement.classList.add("show");
+};
+
+// 切換暗色與亮色模式
+const themeToggleBtn = document.getElementById("themeToggleBtn");
+themeToggleBtn.onclick = function () {
+    document.body.classList.toggle("dark-mode");
+    document.body.classList.toggle("light-mode");
+
+    // 根據模式切換燈泡圖示
+    if (document.body.classList.contains("dark-mode")) {
+        themeToggleBtn.innerText = "🌙";
+    } else {
+        themeToggleBtn.innerText = "💡";
+    }
 };
