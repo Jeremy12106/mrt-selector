@@ -34,7 +34,7 @@ document.getElementById("submitBtn").onclick = function () {
     resultElement.classList.add("show");
 };
 
-// 切換暗色與亮色模式
+// 切換日間與夜間模式
 const themeToggleBtn = document.getElementById("themeToggleBtn");
 themeToggleBtn.onclick = function () {
     document.body.classList.toggle("dark-mode");
@@ -50,14 +50,14 @@ themeToggleBtn.onclick = function () {
 
 // 打開側邊欄
 function openMenu(event) {
-    event.stopPropagation(); // 防止事件冒泡
+    event.stopPropagation();
     document.getElementById("sideMenu").style.width = "250px";
 
     const menuOption = document.getElementById("menuOption");
-    // 延遲淡入選單文字
+    // 選單文字延遲時間
     setTimeout(() => {
         menuOption.classList.add("fade-in");
-    }, 300); // 根據需要的延遲時間調整
+    }, 300);
 }
 
 // 關閉側邊欄
@@ -71,9 +71,9 @@ function closeMenu(event) {
         event.target.className !== "menu-toggle" ||
         event.target.className === "closebtn") {
 
-        menuOption.classList.remove("fade-in"); // 先淡出文字
+        menuOption.classList.remove("fade-in"); // 先淡出選單文字
         setTimeout(() => {
-            sideMenu.style.width = "0"; // 等待淡出後再關閉側邊欄
-        }, 300); // 與淡出效果的時間相同
+            sideMenu.style.width = "0"; // 側邊欄等待關閉
+        }, 300);
     }
 }
