@@ -47,3 +47,33 @@ themeToggleBtn.onclick = function () {
         themeToggleBtn.innerText = "💡";
     }
 };
+
+// 打開側邊欄
+function openMenu(event) {
+    event.stopPropagation(); // 防止事件冒泡
+    document.getElementById("sideMenu").style.width = "250px";
+
+    const menuOption = document.getElementById("menuOption");
+    // 延遲淡入選單文字
+    setTimeout(() => {
+        menuOption.classList.add("fade-in");
+    }, 300); // 根據需要的延遲時間調整
+}
+
+// 關閉側邊欄
+function closeMenu(event) {
+    const sideMenu = document.getElementById("sideMenu");
+    const menuOption = document.getElementById("menuOption");
+
+    // 檢查點擊是否在側邊欄內
+    if (sideMenu.style.width === "250px" &&
+        !sideMenu.contains(event.target) &&
+        event.target.className !== "menu-toggle" ||
+        event.target.className === "closebtn") {
+
+        menuOption.classList.remove("fade-in"); // 先淡出文字
+        setTimeout(() => {
+            sideMenu.style.width = "0"; // 等待淡出後再關閉側邊欄
+        }, 300); // 與淡出效果的時間相同
+    }
+}

@@ -8,10 +8,19 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="light-mode">
+<body class="light-mode" onclick="closeMenu(event)">
+    <!-- 選單按鈕和側邊欄 -->
+    <div class="menu-toggle" onclick="openMenu(event)">≡</div>
+    <div id="sideMenu" class="side-menu">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeMenu(event)">&times;</a>
+        <a id="menuOption" class="menu-option" href="#">隨機捷運站名</a>
+    </div>
+
+    <!-- 添加燈泡按鈕 -->
     <div class="theme-toggle">
         <button id="themeToggleBtn" class="light-mode-btn">💡</button>
     </div>
+
     <div class="container">
         <h1>選擇台北捷運的線</h1>
         <div class="selector">
