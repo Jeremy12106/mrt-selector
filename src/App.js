@@ -48,37 +48,45 @@ themeToggleBtn.onclick = function () {
     }
 };
 
-// 打開側邊欄
-function openMenu(event) {
-    event.stopPropagation();
-    document.getElementById("sideMenu").style.width = "250px";
+document.addEventListener('DOMContentLoaded', function () {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const closeBtn = document.querySelector('.closebtn');
+    const sideMenu = document.getElementById('sideMenu');
+    const menuOption = document.getElementById('menuOption');
 
-    const menuOption = document.getElementById("menuOption");
-    // 選單文字延遲時間
-    setTimeout(() => {
-        menuOption.classList.add("fade-in");
-    }, 300);
-}
+    // 點擊 "≡" 開啟側邊欄
+    menuToggle.addEventListener('click', function (event) {
+        event.stopPropagation(); // 阻止事件冒泡
+        openMenu();
+    });
 
-// 關閉側邊欄
-function closeMenu(event) {
-    const sideMenu = document.getElementById("sideMenu");
-    const menuOption = document.getElementById("menuOption");
+    // 點擊 "×" 或點擊 body 關閉側邊欄
+    closeBtn.addEventListener('click', function (event) {
+        event.stopPropagation(); // 阻止事件冒泡
+        closeMenu();
+    });
 
-    // 檢查點擊是否在側邊欄內
-    if (sideMenu.style.width === "250px" &&
-        !sideMenu.contains(event.target) &&
-        event.target.className !== "menu-toggle" ||
-        event.target.className === "closebtn") {
+    // 點擊 body 任何地方關閉側邊欄
+    document.body.addEventListener('click', function (event) {
+        closeMenu(event);
+    });
 
-        menuOption.classList.remove("fade-in"); // 先淡出選單文字
+    // 打開側邊欄
+    function openMenu() {
+        sideMenu.style.width = "250px";
         setTimeout(() => {
-            sideMenu.style.width = "0"; // 側邊欄等待關閉
+            menuOption.classList.add("fade-in");
         }, 300);
     }
-}
 
-// 切換到 "我要吃拉麵" 頁面
-document.getElementById('ramenOption').onclick = function () {
-
-};
+    // 關閉側邊欄
+    function closeMenu(event) {
+        if (sideMenu.style.width === "250px" &&
+            (!sideMenu.contains(event?.target) || event?.target.className === "closebtn")) {
+            menuOption.classList.remove("fade-in");
+            setTimeout(() => {
+                sideMenu.style.width = "0";
+            }, 300);
+        }
+    }
+});
