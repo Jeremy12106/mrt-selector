@@ -77,3 +77,8 @@ function closeMenu(event) {
         }, 300);
     }
 }
+
+// 切換到 "我要吃拉麵" 頁面
+document.getElementById('ramenOption').onclick = function () {
+
+};
